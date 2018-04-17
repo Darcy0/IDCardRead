@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="IdCard">
+	<file>Resources/pic/eloam.png</file>
+    </qresource>
+</RCC>
