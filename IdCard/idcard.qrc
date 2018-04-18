@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="IdCard">
-	<file>Resources/pic/eloam.png</file>
+    <qresource prefix="/IdCard">
+        <file>Resources/img/eloam.png</file>
+        <file>Resources/img/eloam.ico</file>
     </qresource>
 </RCC>

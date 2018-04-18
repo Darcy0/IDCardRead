@@ -55,9 +55,6 @@
     <CustomBuild Include="idcard.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="idcard.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="idcard.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
@@ -66,16 +63,14 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_idcard.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_IDCardDlg.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pic\eloam.png">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ResourceCompile Include="IdCard.rc" />
   </ItemGroup>
 </Project>

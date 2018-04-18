@@ -2,7 +2,6 @@
 #define IDCARD_H
 
 #include <QtWidgets/QMainWindow>
-#include "ui_idcard.h"
 #include "ui_IDCardDlg.h"
 #include"eloamDll.h"
 
@@ -51,9 +50,10 @@ public:
 	std::vector<QString> m_IDCardDateTemp;
 
 	QString	m_CurImageSavePath;
+
 private:
-	Ui::IdCardClass ui;
 	Ui::IDCardDlg_Form IdCard_ui;
+
 public slots:
 	void OnReadCard();
 	void OnExitIdCard();

@@ -16,10 +16,6 @@
   <property name="windowTitle">
    <string>身份证读取</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="qdilgcamera.qrc">
-    <normaloff>:/QDilgCamera/Resources/pic/eloam.ico</normaloff>:/QDilgCamera/Resources/pic/eloam.ico</iconset>
-  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(188,221,221);</string>
   </property>
@@ -426,7 +422,7 @@ background-color: rgb(85, 170, 255);</string>
   </widget>
  </widget>
  <resources>
-  <include location="qdilgcamera.qrc"/>
+  <include location="idcard.qrc"/>
  </resources>
  <connections/>
 </ui>

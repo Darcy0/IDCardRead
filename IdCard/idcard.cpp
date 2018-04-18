@@ -1,6 +1,4 @@
 #include "idcard.h"
-//#include<QSqlDatabase.h>
-//#include<QSqlQuery.h>
 #include<qdatetime.h>
 #include<qmessagebox.h>
 #include<QFileDialog>
@@ -30,14 +28,13 @@ IdCard::IdCard(QWidget *parent)
 	connect(IdCard_ui.m_PbReadIdCard_SaveAs,SIGNAL(clicked()),this,SLOT(OnIdCardSaveAs()));
 
 	QIcon icon;
-	icon.addFile("://IdCard//Resources//pic//eloam.png");
+	icon.addFile("://IdCard//Resources//img//eloam.png");
 	this->setWindowIcon(icon);
-	
 }
 
 IdCard::~IdCard()
 {
-		EloamGlobal_DeinitIdCard();
+	EloamGlobal_DeinitIdCard();
 }
 
 VOID ELOAMAPI IdCard::IdCardReadCallback(LONG ret, LPVOID userData)
@@ -151,9 +148,7 @@ void IdCard::OnReadCard()
 {
 	EloamGlobal_DiscernIdCard(ELOAM_IDCARDCALLBACK(IdCardReadCallback), this);
 	IdCard_ui.label_ShowCardState->setText(QString::fromLocal8Bit("请放卡。。。"));	
-
 }
-
 
 void IdCard::OnExitReadCard()
 {
@@ -162,6 +157,7 @@ void IdCard::OnExitReadCard()
 
 	m_isSucess = false;
 }
+
 void IdCard::OnClearIdCardinfo()
 {
 	 m_IDCardName = "";                    //身份证姓名
@@ -207,13 +203,10 @@ void IdCard::OnClearIdCardinfo()
 
 	//人的头像
 	
-		IdCard_ui.label_showImage->setPixmap(QPixmap(""));		
+	IdCard_ui.label_showImage->setPixmap(QPixmap(""));		
 	
 	IdCard_ui.m_IDCardData->setText(m_IDCardDate);
 	IdCard_ui.label_ShowCardState->setText(QString::fromLocal8Bit("。。。"));
-
-
-
 }
 void IdCard::OnExeportIdImage()
 {
@@ -239,7 +232,6 @@ void IdCard::OnExeportIdImage()
 }
 void IdCard::OnIdCardSaveAs()
 {
-	//return;
 	if(!m_isSucess)
 	{
 		QMessageBox::warning(this,QString::fromLocal8Bit("提示"),QString::fromLocal8Bit("身份证识别未成功。"));
@@ -276,130 +268,6 @@ void IdCard::OnIdCardSaveAs()
 			<<QString::fromLocal8Bit("有效期：")<<m_IDCardDateTemp[0]<<endl;
 	 file.close();
 
-//
-//
-//
-//	QAxObject excel("Excel.Application");   
-//	//excel.setProperty("Visible", true); 
-//	excel.setProperty("Caption", "Qt Excel");
-//	QAxObject *work_books = excel.querySubObject("WorkBooks");  
-//	 work_books->dynamicCall("Add"); 
-//	QAxObject *work_booka = excel.querySubObject("ActiveWorkBook"); 
-//	
-//	QAxObject *work_sheetsa = work_booka->querySubObject("Sheets"); 
-//	QAxObject *first_sheeta = work_sheetsa->querySubObject("Item(int)", 1);
-//	work_booka->setProperty("Name", "IDCard Sheet");  //设置工作表名称
-//	QAxObject *cell1_1 = first_sheeta->querySubObject("Cells(int,int)", 1, 1);
-//	QAxObject *font1 = cell1_1->querySubObject("Font");  //获取单元格字体
-//	font1->setProperty("Bold", true);  //设置单元格字体加粗
-//	font1->setProperty("Color", QColor(255, 0, 0));  //设置单元格字体颜色（红色）
-//	cell1_1->setProperty("Value", QString::fromLocal8Bit("姓名"));  //设置单元格值
-//
-//	QAxObject *cell1_2 = first_sheeta->querySubObject("Cells(int,int)", 1, 2);
-//	cell1_2->setProperty("Value", QString::fromLocal8Bit("姓别"));  //设置单元格值
-//	QAxObject *cell1_3 = first_sheeta->querySubObject("Cells(int,int)", 1, 3);
-//	cell1_3->setProperty("Value", QString::fromLocal8Bit("民族"));  //设置单元格值
-//	QAxObject *cell1_4 = first_sheeta->querySubObject("Cells(int,int)", 1, 4);
-//	cell1_4->setProperty("Value", QString::fromLocal8Bit("出生年月日"));  //设置单元格值
-//	//cell1_4->setProperty("RowHeight", 50);  //设置单元格行高
-//	cell1_4->setProperty("ColumnWidth", 30);  //设置单元格列宽
-//	QAxObject *cell1_5 = first_sheeta->querySubObject("Cells(int,int)", 1, 5);
-//	cell1_5->setProperty("ColumnWidth", 30);  //设置单元格列宽
-//	cell1_5->setProperty("WrapText", true); 
-//	cell1_5->setProperty("Value", QString::fromLocal8Bit("住址"));  //设置单元格值
-//	QAxObject *cell1_6 = first_sheeta->querySubObject("Cells(int,int)", 1, 6);
-//	cell1_6->setProperty("Value", QString::fromLocal8Bit("身份证号码"));  //设置单元格值
-//	///cell1_6->setProperty("RowHeight", 50);  //设置单元格行高
-//	cell1_6->setProperty("ColumnWidth", 30);  //设置单元格列宽
-//	cell1_6->setProperty("WrapText", true); 
-//	QAxObject *cell1_7 = first_sheeta->querySubObject("Cells(int,int)", 1, 7);
-//	cell1_7->setProperty("Value", QString::fromLocal8Bit("签发机关"));  //设置单元格值
-//	//cell1_7->setProperty("RowHeight", 50);  //设置单元格行高
-//	cell1_7->setProperty("ColumnWidth", 30);  //设置单元格列宽
-//	cell1_7->setProperty("WrapText", true); 
-//	QAxObject *cell1_8 = first_sheeta->querySubObject("Cells(int,int)", 1, 8);
-////	cell1_8->setProperty("RowHeight", 50);  //设置单元格行高
-//	cell1_8->setProperty("ColumnWidth", 30);  //设置单元格列宽
-//	cell1_8->setProperty("WrapText", true);
-//	cell1_8->setProperty("Value", QString::fromLocal8Bit("有效期"));  //设置单元格值
-//
-//
-//	//保存识别内容
-//	
-//	//QAxObject *cell2_1 = first_sheeta->querySubObject("Cells(int,int)", 2, 1);
-//	//cell2_1->setProperty("Value", m_IDCardName);  //设置单元格值
-//
-//	//QAxObject *cell2_2 = first_sheeta->querySubObject("Cells(int,int)", 2, 2);
-//	//cell2_2->setProperty("Value", m_IDCardSex);  //设置单元格值
-//
-//	//QAxObject *cell2_3 = first_sheeta->querySubObject("Cells(int,int)", 2, 3);
-//	//cell2_3->setProperty("Value", m_IDCardNation);  //设置单元格值
-//
-//	//QString age = m_IDCardAgeYear + QString::fromLocal8Bit("年")+ m_IDCardAgeMouth + QString::fromLocal8Bit("月") + m_IDCardAgeDay + QString::fromLocal8Bit("日");
-//	//QAxObject *cell2_4 = first_sheeta->querySubObject("Cells(int,int)", 2,4);
-//	//cell2_4->setProperty("Value", age);  //设置单元格值
-//	//cell2_4->setProperty("WrapText", true);
-//
-//	//QAxObject *cell2_5= first_sheeta->querySubObject("Cells(int,int)", 2, 5);
-//	//cell2_5->setProperty("Value", m_IDCardAdreass);  //设置单元格值
-//	//cell2_5->setProperty("WrapText", true);
-//
-//	//QAxObject *cell2_6 = first_sheeta->querySubObject("Cells(int,int)", 2, 6);
-//	//cell2_6->setProperty("Value", QString::fromLocal8Bit("'")+m_IDCardIdNum);  //设置单元格值
-//	//cell2_6->setProperty("HorizontalAlignment", -4108);
-//	////cell2_6->setProperty("WrapText", true);
-//
-//
-//	//QAxObject *cell2_7 = first_sheeta->querySubObject("Cells(int,int)", 2, 7);
-//	//cell2_7->setProperty("Value", m_IDCardIdIssued);  //设置单元格值
-//	//cell2_7->setProperty("WrapText", true);
-//
-//	//QAxObject *cell2_8 = first_sheeta->querySubObject("Cells(int,int)", 2, 8);
-//	//cell2_8->setProperty("Value", m_IDCardDate);  //设置单元格值
-//	//cell2_8->setProperty("WrapText", true);
-//
-//	for(int i =0;i<m_IDCardNameTemp.size();i++)
-//	{
-//		QAxObject *cell2_1 = first_sheeta->querySubObject("Cells(int,int)", i+2, 1);
-//		cell2_1->setProperty("Value", m_IDCardNameTemp[i]);  //设置单元格值
-//
-//		QAxObject *cell2_2 = first_sheeta->querySubObject("Cells(int,int)", i+2, 2);
-//		cell2_2->setProperty("Value", m_IDCardSexTemp[i]);  //设置单元格值
-//
-//		QAxObject *cell2_3 = first_sheeta->querySubObject("Cells(int,int)", i+2, 3);
-//		cell2_3->setProperty("Value", m_IDCardNationTemp[i]);  //设置单元格值
-//
-//		QString age = m_IDCardAgeYearTemp[i] + QString::fromLocal8Bit("年")+ m_IDCardAgeMouthTemp[i] + QString::fromLocal8Bit("月") + m_IDCardAgeDayTemp[i] + QString::fromLocal8Bit("日");
-//		QAxObject *cell2_4 = first_sheeta->querySubObject("Cells(int,int)", i+2,4);
-//		cell2_4->setProperty("Value", age);  //设置单元格值
-//		cell2_4->setProperty("WrapText", true);
-//
-//		QAxObject *cell2_5= first_sheeta->querySubObject("Cells(int,int)", i+2, 5);
-//		cell2_5->setProperty("Value", m_IDCardAdreassTemp[i]);  //设置单元格值
-//		cell2_5->setProperty("WrapText", true);
-//
-//		QAxObject *cell2_6 = first_sheeta->querySubObject("Cells(int,int)", i+2, 6);
-//		cell2_6->setProperty("Value", QString::fromLocal8Bit("'")+m_IDCardIdNumTemp[i]);  //设置单元格值
-//		cell2_6->setProperty("HorizontalAlignment", -4108);
-//		//cell2_6->setProperty("WrapText", true);
-//
-//
-//		QAxObject *cell2_7 = first_sheeta->querySubObject("Cells(int,int)", i+2, 7);
-//		cell2_7->setProperty("Value", m_IDCardIdIssuedTemp[i]);  //设置单元格值
-//		cell2_7->setProperty("WrapText", true);
-//
-//		QAxObject *cell2_8 = first_sheeta->querySubObject("Cells(int,int)", i+2, 8);
-//		cell2_8->setProperty("Value", m_IDCardDateTemp[i]);  //设置单元格值
-//		cell2_8->setProperty("WrapText", true);
-//	}
-//
-//
-//
-//
-//	work_booka->dynamicCall("SaveAs(const QString&)", fileSaveName);  //另存为另一个文件
-//	work_booka->dynamicCall("Close (Boolean)", false);  
-//	excel.dynamicCall("Quit (void)"); 	
-
 	QMessageBox msgBox(QMessageBox::Question,QString(QString::fromLocal8Bit("提示")),QString(QString::fromLocal8Bit(" \n 导出成功，是否查看？\n")));
 	msgBox.setStandardButtons(QMessageBox::Yes| QMessageBox::No);
 	msgBox.setDefaultButton(QMessageBox::Yes);
@@ -429,6 +297,5 @@ void IdCard::OnExitIdCard()
 {
 	OnClearIdCardinfo();
 	EloamGlobal_StopIdCardDiscern();
-
 	close();
 }
