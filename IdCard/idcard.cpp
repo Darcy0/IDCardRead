@@ -141,8 +141,6 @@ VOID ELOAMAPI IdCard::IdCardReadCallback(LONG ret, LPVOID userData)
 	EloamGlobal_DestroyString(wNameg);
 
 	pDlg->IdCard_ui.label_ShowCardState->setText(QString::fromLocal8Bit("读卡成功，请换另一张卡。。。"));
-		
-
 }
 void IdCard::OnReadCard()
 {
@@ -160,16 +158,16 @@ void IdCard::OnExitReadCard()
 
 void IdCard::OnClearIdCardinfo()
 {
-	 m_IDCardName = "";                    //身份证姓名
-	 m_IDCardSex= "";                    //身份证姓名
-	 m_IDCardAgeYear= "";                    //身份证姓名
-	 m_IDCardAgeMouth= "";                    //身份证姓名
-	 m_IDCardAgeDay= "";                    //身份证姓名
-	 m_IDCardNation= "";                    //身份证姓名
-	 m_IDCardAdreass= "";                    //身份证姓名
-	 m_IDCardIdNum= "";                    //身份证姓名
-	 m_IDCardIdIssued= "";                    //发证机关
-	 m_IDCardDate= ""; 
+	m_IDCardName = "";		//身份证姓名
+	m_IDCardSex= "";        //身份证姓名
+	m_IDCardAgeYear= "";    //身份证姓名
+	m_IDCardAgeMouth= "";   //身份证姓名
+	m_IDCardAgeDay= "";     //身份证姓名
+	m_IDCardNation= "";     //身份证姓名
+	m_IDCardAdreass= "";    //身份证姓名
+	m_IDCardIdNum= "";      //身份证姓名
+	m_IDCardIdIssued= "";   //发证机关
+	m_IDCardDate= ""; 
 
 	
 	IdCard_ui.m_IDCardName->setText(m_IDCardName);
