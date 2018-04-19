@@ -58,10 +58,14 @@ Source: "..\Win32\Release\Qt5Xml.dll"; DestDir: "{app}"
                     
 Source: "..\Win32\Release\platforms\*"; DestDir: "{app}\platforms"
 
+;图标
+Source: "..\Win32\Release\uninstall.ico"; DestDir: "{app}"; Flags: replacesameversion
+Source: "..\Win32\Release\eloam.ico"; DestDir: "{app}"; Flags: replacesameversion
+
 [Icons]
-Name: "{group}\身份证信息读取软件 V1.0"; Filename: "{app}\IdCard.exe"
-Name: "{group}\{cm:UninstallProgram, 身份证信息读取软件 V1.0}"; Filename: "{uninstallexe}";
-Name: "{commondesktop}\身份证信息读取软件 V1.0"; Filename: "{app}\IdCard.exe"
+Name: "{group}\身份证信息读取软件 V1.0"; Filename: "{app}\IdCard.exe"; IconFilename: "{app}\eloam.ico";
+Name: "{group}\{cm:UninstallProgram, 身份证信息读取软件 V1.0}"; Filename: "{uninstallexe}"; IconFilename: "{app}\uninstall.ico";
+Name: "{commondesktop}\身份证信息读取软件 V1.0"; Filename: "{app}\IdCard.exe"; IconFilename: "{app}\eloam.ico";
 
 [Run] 
 Filename: "{app}\IdCard.exe"; Description: "{cm:LaunchProgram,身份证信息读取软件 V1.0}" ;Flags: postinstall nowait skipifsilent

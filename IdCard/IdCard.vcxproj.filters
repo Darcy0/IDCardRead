@@ -38,53 +38,32 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="idcard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_idcard.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_IdCardDlg.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_idcard.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_IdCardDlg.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_idcard.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IdCardDlgg.cpp">
+    <ClCompile Include="IdCardDlg.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_IdCardDlgg.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_IdCardDlgg.cpp">
-      <Filter>Generated Files\Release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="idcard.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="idcard.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="IDCardDlg.ui">
+    <CustomBuild Include="IdCardDlg.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="IdCardDlgg.h">
+    <CustomBuild Include="IdCardDlg.h">
       <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="IdCardDlgg.ui">
-      <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_IDCardDlg.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_IdCardDlgg.h">
+    <ClInclude Include="GeneratedFiles\ui_IdCardDlg.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
